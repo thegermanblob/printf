@@ -2,8 +2,7 @@
 
 int main()
 {
-	char *s = "Hello world\n";
 
-	printf("%i",_printf("%%%nei", 1, 1, 1, 1, 1, 1, 1, 1, 1, 1));
+	_printf("okokokoko%cnei", 'P');
 	return (0);
 }
