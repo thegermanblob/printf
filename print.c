@@ -20,8 +20,8 @@ int check(const char *s, char c)
  */
 int _printf(const char *format, ...)
 {
-	char *str1;
-	int i, n, e=0;
+	char *str;
+	int i;
 
 	n = check(format, '%');
 
@@ -30,12 +30,32 @@ int _printf(const char *format, ...)
 	if (n != 0)
 	{
 		va_start(args,format);
-		for (i = 0; i < n; i++)
+		for (i = 0; format[i] != '\0'; i++)
+		{
+			while (format[i] != '%')
+			{
+				putchar(format[i]);
+				i++;
+			}
+			i++;
 
-		va_end(args);
-		return (e);
+			switch (format[i])
+			{
+				case 'c':
+					write(1, va_arg(args, int), 1);
+					break;
+				case 'd':
+					dprint(va_arg(args, int));
+					break;
+			}
+			default:
+			continue;
+
+			va_end(args);
+			return (e);
+		}
+		else
+			return ( write(1, format, _strlenc(format)));
+		return (0);
 	}
-	else
-		return ( write(1, format, _strlenc(format)));
-	return (0);
-} "sttrstrstrst%ssrtrstrst%sstrsts%s", str, str, str 
+}
