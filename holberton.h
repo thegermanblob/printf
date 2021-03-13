@@ -8,7 +8,7 @@
 
 int _printf(const char *format, ...);
 int _strlen(char *s);
-int _strchr(char *s, char c, int *n);
+char *_strchr(char *s, char c, int *n);
 int _strlenc(const char *s);
 void switcher(const char *format);
 void converter(unsigned int n, int base, int up);
