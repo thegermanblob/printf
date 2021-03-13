@@ -11,7 +11,8 @@ int _strlen(char *s);
 int _strchr(char *s, char c, int *n);
 int _strlenc(const char *s);
 void switcher(const char *format);
-char *converter(unsigned int n, int base, int up);
+void converter(unsigned int n, int base, int up);
 void dprint(unsigned int n);
+void put(char *str);
 
 #endif
