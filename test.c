@@ -4,6 +4,6 @@ int main()
 {
 	char *s = "Hello world\n";
 
-	printf("hey");
+	printf("%i",_printf("%%%nei", 1, 1, 1, 1, 1, 1, 1, 1, 1, 1));
 	return (0);
 }

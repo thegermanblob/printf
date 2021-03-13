@@ -21,7 +21,7 @@ int check(const char *s, char c)
 int _printf(const char *format, ...)
 {
 	char *str1;
-	int i, n;
+	int i, n, e=0;
 
 	n = check(format, '%');
 
@@ -29,10 +29,13 @@ int _printf(const char *format, ...)
 
 	if (n != 0)
 	{
-	//	va_start(args, check(format, '%');
+		va_start(args,format);
+		for (i = 0; i < n; i++)
+
 		va_end(args);
+		return (e);
 	}
 	else
 		return ( write(1, format, _strlenc(format)));
 	return (0);
-}
+} "sttrstrstrst%ssrtrstrst%sstrsts%s", str, str, str 
