@@ -3,6 +3,6 @@
 int main()
 {
 
-	_printf("okokokoko%cnei", 'P');
+	_printf("%cnei\n", 'P');
 	return (0);
 }
