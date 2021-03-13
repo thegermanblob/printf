@@ -20,12 +20,11 @@ int check(const char *s, char c)
  */
 int _printf(const char *format, ...)
 {
-	char *str;
-	int i;
+	int i, n;
+	va_list args;
 
 	n = check(format, '%');
 
-	va_list args;
 
 	if (n != 0)
 	{
@@ -42,20 +41,19 @@ int _printf(const char *format, ...)
 			switch (format[i])
 			{
 				case 'c':
-					write(1, va_arg(args, int), 1);
+
 					break;
 				case 'd':
 					dprint(va_arg(args, int));
 					break;
+				default:
+					continue;
 			}
-			default:
-			continue;
 
-			va_end(args);
-			return (e);
 		}
-		else
-			return ( write(1, format, _strlenc(format)));
-		return (0);
+		va_end(args);
 	}
+	else
+		return ( write(1, format, _strlenc(format)));
+	return (0);
 }
