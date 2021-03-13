@@ -25,14 +25,10 @@ int _printf(const char *format, ...)
 
 	n = check(format, '%');
 
-<<<<<<< HEAD
-
-=======
->>>>>>> b3e316570c810e562fb0f9d11d8f2748fa066f14
 	if (n != 0)
 	{
 		va_start(args,format);
-		for (i = 0; format[i] != '\0'; i++)
+		for (i = 0; i < _strlenc(format); i++)
 		{
 			while (format[i] != '%')
 			{
@@ -44,26 +40,18 @@ int _printf(const char *format, ...)
 			switch (format[i])
 			{
 				case 'c':
-<<<<<<< HEAD
-
-=======
-					_putchar(va_arg(args, char));
->>>>>>> b3e316570c810e562fb0f9d11d8f2748fa066f14
+					putchar(va_arg(args, int));
 					break;
 				case 'd':
-					dprint(va_arg(args, int));
 					break;
 				default:
 					continue;
 			}
-<<<<<<< HEAD
-
-=======
->>>>>>> b3e316570c810e562fb0f9d11d8f2748fa066f14
+			printf("after switch");
 		}
-		va_end(args);
+		printf("after loop");
 	}
-	else
-		return ( write(1, format, _strlenc(format)));
+	printf("EOF");
+	va_end(args);
 	return (0);
 }
