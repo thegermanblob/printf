@@ -9,6 +9,7 @@
 int _printf(const char *format, ...);
 int _strlen(char *s);
 int _strchr(char *s, char c, int *n);
+int _strlenc(const char *s);
 
 
 #endif

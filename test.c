@@ -4,6 +4,6 @@ int main()
 {
 	char *s = "Hello world\n";
 
-	write(1,s,12);
+	printf("hey");
 	return (0);
 }
