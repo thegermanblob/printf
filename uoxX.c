@@ -25,17 +25,3 @@ void converter(unsigned int n, int base, int up)
 
 	put(num);
 }
-
-/**
- *
- *
- *
- *
-void dprint(unsigned int n)
-{
-	char *str;
-
-	str = converter(n, 10, 0);
-	puts(str);
-	printf("aftr dprint");
-}*/
