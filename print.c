@@ -22,6 +22,7 @@ int _printf(const char *format, ...)
 {
 	int i, n;
 	va_list args;
+	char elstring[1024];
 
 	n = check(format, '%');
 
@@ -44,6 +45,19 @@ int _printf(const char *format, ...)
 					putchar(va_arg(args, int));
 					break;
 				case 'd':
+					converter(va_arg(args,int), 10, 0);
+					break;
+				case 'o':
+					converter(va_arg(args,int), 8, 0);
+					break;
+				case 'x':
+					converter(va_arg(args,int), 16, 0);
+					break;
+				case 'X':
+					converter(va_arg(args,int), 16, 1);
+					break;
+				case 's':
+					put(va_arg(args, char *));
 					break;
 				default:
 					continue;
