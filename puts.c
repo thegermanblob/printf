@@ -15,14 +15,3 @@ void put(char *str)
 		i++;
 	}
 }
-/**
- * pointer - prints an adress
- * @str: where adress is stored
- * Return: nothing
- */
-
-int pointer(char *str)
-{
-	int i = &str;
-	return (i);
-}

@@ -70,7 +70,7 @@ int _printf(const char *format, ...)
 					converter(va_arg(arg, int), 2, 0);
 					break;
 				case 'p':
-					pointer(va_arg(arg, char *));
+					converter(va_arg(arg, int), 16, 0);
 				default:
 					continue;
 			}
