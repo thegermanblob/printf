@@ -4,7 +4,7 @@
  *
  *
  */
-void converter(unsigned int n, int base, int up)
+char *converter(unsigned int n, int base, int up, int *tlen)
 {
 	static char numupchars[]= "0123456789ABCDEF";
 	static char numlochars[]= "0123456789abcdef";
@@ -22,6 +22,8 @@ void converter(unsigned int n, int base, int up)
 			*--num = numlochars[n%base];
 		n /= base;
 	}while (n != 0);
+	*tlen += _strlen(num);
+	printf("conv number[%s]", num);
 
-	put(num);
+	return (num);
 }

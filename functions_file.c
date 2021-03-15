@@ -9,15 +9,13 @@
 int _strlen(char *s)
 {
 	int i = 0;
-	char c = 'n';
 
-	while (c != '\0')
+	while (*s != '\0')
 	{
-		c = s[i];
 		i++;
-
+		s++;
 	}
-	return (i - 1);
+	return (i);
 }
 /**
  * _strlen - checks length
@@ -50,4 +48,27 @@ int _strlenc(const char *s)
 int _putchar(char c)
 {
 	return (write(1, &c, 1));
+}
+/**
+ * _strcat - concanates string
+ * @dest: destination string
+ * @src: source strin
+ * Return: concanated string
+ *
+ */
+char *_strcat(char *dest, char *src)
+{
+	int i, scount;
+
+	scount = 0;
+	i = _strlen(dest);
+
+	while (src[scount] != '\0')
+	{
+		dest[i] = src[scount];
+		scount++;
+		i++;
+	}
+	printf("stcat src[%s]", src);
+	return (dest);
 }
