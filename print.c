@@ -42,6 +42,7 @@ int _printf(const char *format, ...)
 int switcher(va_list arg, char c)
 {
 	int n, len = 0;
+	char *str;
 
 	switch (c)
 	{
@@ -72,7 +73,11 @@ int switcher(va_list arg, char c)
 			len = converter(va_arg(arg, int), 16, 1);
 			break;
 		case 's':
-			len = put(va_arg(arg, char *));
+			str = _strdup(va_arg(arg, char *));
+			if (str != NULL)
+				len = put(str);
+			else
+				len = put("(null)");
 			break;
 		default:
 			break;

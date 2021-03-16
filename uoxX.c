@@ -28,7 +28,7 @@ int converter(unsigned int n, int base, int up)
 		n /= base;
 	} while (n != 0);
 
-	len = put(num);
+	len += put(num);
 
 	return (len);
 }
