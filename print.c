@@ -64,8 +64,7 @@ int switcher(va_list arg, char c)
 			len = converter(va_arg(arg, int), 16, 1);
 			break;
 		case 's':
-			if (va_arg(arg, char *) != NULL)
-				len = put(va_arg(arg, char *));
+			len = put(va_arg(arg, char *));
 			break;
 		case 'b':
 			len = converter(va_arg(arg, int), 2, 0);
