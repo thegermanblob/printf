@@ -29,7 +29,6 @@ int _printf(const char *format, ...)
 {
 	int i, n;
 	va_list arg;
-	char elstring[1024];
 
 	n = check(format, '%');
 
@@ -40,18 +39,37 @@ int _printf(const char *format, ...)
 		{
 			while (format[i] != '%' && i < _strlenc(format))
 			{
-				putchar(format[i]);
+				_putchar(format[i]);
 				i++;
 			}
 			if (format[i] == '%')
 				i++;
+			switcher(arg, format[i]);
 
-			switch (format[i])
+		}
+	}
+	va_end(arg);
+	return (i);
+}
+
+
+/**
+ * switcher - is the main switch for the function print
+ * @arg: list of arguments given to printf
+ * @c: character to be used for the case
+ *
+ */
+void switcher(va_list arg, char c)
+{
+			switch (c)
 			{
 				case 'c':
 					_putchar(va_arg(arg, int));
 					break;
 				case 'd':
+					converter(va_arg(arg, int), 10, 0);
+					break;
+				case 'i':
 					converter(va_arg(arg, int), 10, 0);
 					break;
 				case 'o':
@@ -71,11 +89,9 @@ int _printf(const char *format, ...)
 					break;
 				case 'p':
 					converter(va_arg(arg, int), 16, 0);
-				default:
-					continue;
+					break;
+				case '%':
+					put("%");
+					break;
 			}
-		}
-	}
-	va_end(arg);
-	return (0);
 }

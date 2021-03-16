@@ -10,10 +10,11 @@
 int _printf(const char *format, ...);
 int _strlen(char *s);
 int _strlenc(const char *s);
-void switcher(const char *format);
-char *converter(unsigned int n, int base, int up, int *tlen);
+void switcher(va_list arg, char c);
+char *converter(int n, int base, int up);
 void dprint(unsigned int n);
 void put(char *str);
 char *_strcat(char *dest, char *src);
+int _putchar(char c);
 
 #endif
