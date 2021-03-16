@@ -69,3 +69,36 @@ int converter2(int n, int base, int up)
 
 	return (len);
 }
+/**
+ * converter - converts number to given base and he to a string
+ * @n: number to ocnvert
+ * @base: base to convert number to
+ * @up: used as a bollean variable to make hex uppercase\
+ *
+ * Return: returns pointer to string version of number
+ *
+ */
+int converter3(unsigned int n, int base, int up)
+{
+	static const char numupchars[] = "0123456789ABCDEF";
+	static const char numlochars[] = "0123456789abcdef";
+	static char buffer[50];
+	char *num;
+	int len = 0;
+
+	num = &buffer[49];
+	*num = '\0';
+
+	do {
+		if (up)
+			*--num = numupchars[n % base];
+		else
+			*--num = numlochars[n % base];
+		n /= base;
+	} while (n != 0);
+
+			*--num = numlochars[n % base];
+	len = put(num);
+
+	return (len);
+}
