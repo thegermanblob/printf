@@ -26,7 +26,7 @@ int _printf(const char *format, ...)
 
 		}
 	va_end(arg);
-	return (i);
+	return (i - 1);
 }
 
 
