@@ -57,7 +57,6 @@ int switcher(va_list arg, char c)
 	{
 		case 'c':
 			ch = va_arg(arg, int);
-			if (ch >= 0)
 				len = _putchar(ch);
 			break;
 		case 'd':
