@@ -12,6 +12,8 @@ int _printf(const char *format, ...)
 	int i, len = 0;
 	va_list arg;
 
+	if (format != NULL)
+	{
 	va_start(arg, format);
 	for (i = 0; i < _strlenc(format); i++)
 	{
@@ -32,6 +34,7 @@ int _printf(const char *format, ...)
 		len += switcher3(arg, format[i]);
 	}
 	va_end(arg);
+	}
 	return (len);
 }
 
