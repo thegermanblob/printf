@@ -23,14 +23,17 @@ int _printf(const char *format, ...)
 			len++;
 			i++;
 		}
-		if (format[i] == '%' || (format[i] == '%' && (format[i + 1] == 'c' || format[i + 1] == 'd'
+		if (format[i] == '%' && (format[i + 1] == 'c' || format[i + 1] == 'd'
 
 					|| format[i + 1] == 'i' || format[i + 1] == 's' || format[i + 1] == 'b'
 					|| format[i + 1] == 'p' || format[i + 1] == 'o' || format[i + 1] == 'x'
-					|| format[i + 1] == 'X' || format[i + 1] == 'u'
-					|| format[i + 1] == 'r' || format[i + 1] == 'S' || format[i + 1] == 'R')))
+					|| format[i + 1] == 'X' || format[i + 1] == '%' || format[i + 1] == 'u'
+					|| format[i + 1] == 'r' || format[i + 1] == 'S' || format[i + 1] == 'R'))
 		{
-			
+			if(format[i + 2] == '%')
+			{
+				i--;
+			}
 			i++;
 		}
 		len += switcher(arg, format[i]);
