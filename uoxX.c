@@ -70,7 +70,7 @@ int converter2(int n, int base, int up)
 	return (len);
 }
 /**
- * converter - converts number to given base and he to a string
+ * converter3 - converts number to given base and he to a string
  * @n: number to ocnvert
  * @base: base to convert number to
  * @up: used as a bollean variable to make hex uppercase\

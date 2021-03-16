@@ -41,7 +41,7 @@ int _printf(const char *format, ...)
  */
 int switcher(va_list arg, char c)
 {
-	int len = 0;
+	int n, len = 0;
 
 	switch (c)
 	{
@@ -49,10 +49,24 @@ int switcher(va_list arg, char c)
 			len = _putchar(va_arg(arg, int));
 			break;
 		case 'd':
-			len = converter2(va_arg(arg, int), 10, 0);
+			n = va_arg(arg, int);
+			if (n < 0)
+			{
+				n = -n;
+				_putchar('-');
+				len++;
+			}
+			len = converter(n, 10, 0);
 			break;
 		case 'i':
-			len = converter2(va_arg(arg, int), 10, 0);
+			n = va_arg(arg, int);
+			if (n < 0)
+			{
+				n = -n;
+				_putchar('-');
+				len++;
+			}
+			len = converter(n, 10, 0);
 			break;
 		case 'o':
 			len = converter(va_arg(arg, int), 8, 0);
@@ -66,41 +80,44 @@ int switcher(va_list arg, char c)
 		case 's':
 			len = put(va_arg(arg, char *));
 			break;
+		default:
+			break;
+	}
+	return (len);
+}
+
+/**
+ * switcher2 - is the main switch for the function print
+ * @arg: list of arguments given to printf
+ * @c: character to be used for the case
+ * Return: length of printed things
+ *
+ */
+
+int switcher2(va_list arg, char c)
+{
+	int len = 0;
+
+	switch (c)
+	{
 		case 'b':
 			len = converter(va_arg(arg, int), 2, 0);
 			break;
 		case 'p':
 			len = converter(va_arg(arg, int), 16, 0);
 			break;
-		default:
-			break;
-	}
-	
-	return (len);
-}
-/** switcher - is the main switch for the function print
- * @arg: list of arguments given to printf
- * @c: character to be used for the case
- * Return: length of printed things
- *
- */
-int switcher2(va_list arg, char c)
-{
-	int len = 0;
-	switch (c)
-	{
 		case '%':
 			len = put("%");
 			break;
 		case 'u':
-			 len = converter(va_arg(arg, int), 10, 0);
-			 break;
+			len = converter(va_arg(arg, int), 10, 0);
+			break;
 		case 'r':
-			 len = putr(va_arg(arg, char *));
-			 break;
+			len = putr(va_arg(arg, char *));
+			break;
 		case 'S':
-			 len = putn(va_arg(arg, char *));
-			 break;
+			len = putn(va_arg(arg, char *));
+			break;
 	}
 	return (len);
 }
