@@ -68,25 +68,28 @@ int putn(char *str)
  * @str: string to encrypt
  * Return: string after encription.
  */
-int rot13(char *s)
+int rot13(char *str)
 {
-	int i, j, len;
-	char az[52] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
-	char nm[52] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
-	char c;
+	int i, j, len = 0;
+	char a1[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+	char a2[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
 
-	i = 0;
-	while (s[i] != 0)
+	for (i = 0; str[i] != '\0'; i++)
 	{
-		for (j = 0; j < 52; j++)
+		for (j = 0; a1[j] != '\0'; j++)
 		{
-			if (s[i] == az[j])
+			if (str[i] == a1[j])
 			{
-				len += _putchar(nm[j]);
+				_putchar(a2[j]);
+				len++;
 				break;
 			}
+			else
+			{
+				_putchar(str[i]);
+				len++;
+			}
 		}
-		i++;
 	}
 	return (len);
 }
