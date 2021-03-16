@@ -63,7 +63,11 @@ int putn(char *str)
 	}
 	return (len);
 }
-
+/**
+ * rot13 - translates to rot13
+ * @str: string to translate
+ * Return: lenght of printed string
+ */
 int rot13(char *str)
 {
 	int i, j, len = 0;
