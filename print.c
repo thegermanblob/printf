@@ -35,11 +35,13 @@ int _printf(const char *format, ...)
  * switcher - is the main switch for the function print
  * @arg: list of arguments given to printf
  * @c: character to be used for the case
+ * Return: length of printed things
  *
  */
 int switcher(va_list arg, char c)
 {
 	int len = 0;
+
 	switch (c)
 	{
 		case 'c':
