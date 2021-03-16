@@ -23,6 +23,6 @@ int putn(char *str);
 int rot13(char *str);
 char *_strcat(char *dest, char *src);
 int _putchar(char c);
-char *_strdup(char * str);
+char *_strdup(char *str);
 
 #endif
