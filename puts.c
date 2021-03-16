@@ -63,3 +63,30 @@ int putn(char *str)
 	}
 	return (len);
 }
+
+int rot13(char *str)
+{
+	int i, j, len = 0;
+	char a1[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
+	char a2[] = "NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm";
+
+	for (i = 0; str[i] != '\0'; i++)
+	{
+		for (j = 0; a1[j] != '\0'; j++)
+		{
+			if (str[i] == a1[j])
+				break;
+			if (str[i] == a1[j])
+			{
+				_putchar(a2[j]);
+				len++;
+			}
+			else
+			{
+				_putchar(str[i]);
+				len++;
+			}
+		}
+	}
+	return (len);
+}
