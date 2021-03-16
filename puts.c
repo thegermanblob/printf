@@ -9,11 +9,14 @@ int put(char *str)
 	int i, len = 0;
 
 	i = 0;
+	if (str != NULL)
+	{
 	while (str[i])
 	{
 		_putchar(str[i]);
 		len++;
 		i++;
+	}
 	}
 	return (len);
 }

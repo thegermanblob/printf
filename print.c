@@ -66,12 +66,6 @@ int switcher(va_list arg, char c)
 		case 's':
 			len = put(va_arg(arg, char *));
 			break;
-		case 'b':
-			len = converter(va_arg(arg, int), 2, 0);
-			break;
-		case 'p':
-			len = converter(va_arg(arg, int), 16, 0);
-			break;
 		default:
 			break;
 	}
@@ -92,6 +86,12 @@ int switcher2(va_list arg, char c)
 
 	switch (c)
 	{
+		case 'b':
+			len = converter(va_arg(arg, int), 2, 0);
+			break;
+		case 'p':
+			len = converter(va_arg(arg, int), 16, 0);
+			break;
 		case '%':
 			len = put("%");
 			break;
