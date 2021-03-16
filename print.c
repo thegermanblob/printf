@@ -9,24 +9,25 @@
 
 int _printf(const char *format, ...)
 {
-	int i;
+	int i, len = 0;
 	va_list arg;
 
-		va_start(arg, format);
-		for (i = 0; i < _strlenc(format); i++)
+	va_start(arg, format);
+	for (i = 0; i < _strlenc(format); i++)
+	{
+		while (format[i] != '%' && i < _strlenc(format))
 		{
-			while (format[i] != '%' && i < _strlenc(format))
-			{
-				_putchar(format[i]);
-				i++;
-			}
-			if (format[i] == '%')
-				i++;
-			switcher(arg, format[i]);
-
+			_putchar(format[i]);
+			len++;
+			i++;
 		}
+		if (format[i] == '%')
+			i++;
+		len += switcher(arg, format[i]);
+
+	}
 	va_end(arg);
-	return (i - 1);
+	return (len);
 }
 
 
@@ -36,42 +37,44 @@ int _printf(const char *format, ...)
  * @c: character to be used for the case
  *
  */
-void switcher(va_list arg, char c)
+int switcher(va_list arg, char c)
 {
-			switch (c)
-			{
-				case 'c':
-					_putchar(va_arg(arg, int));
-					break;
-				case 'd':
-					converter2(va_arg(arg, int), 10, 0);
-					break;
-				case 'i':
-					converter2(va_arg(arg, int), 10, 0);
-					break;
-				case 'o':
-					converter(va_arg(arg, int), 8, 0);
-					break;
-				case 'x':
-					converter(va_arg(arg, int), 16, 0);
-					break;
-				case 'X':
-					converter(va_arg(arg, int), 16, 1);
-					break;
-				case 's':
-					put(va_arg(arg, char *));
-					break;
-				case 'b':
-					converter(va_arg(arg, int), 2, 0);
-					break;
-				case 'p':
-					converter(va_arg(arg, int), 16, 0);
-					break;
-				case '%':
-					put("%");
-					break;
-				case 'u':
-					converter(va_arg(arg, int), 10, 0);
-					break;
-			}
+	int len = 0;
+	switch (c)
+	{
+		case 'c':
+			len = _putchar(va_arg(arg, int));
+			break;
+		case 'd':
+			len = converter2(va_arg(arg, int), 10, 0);
+			break;
+		case 'i':
+			len = converter2(va_arg(arg, int), 10, 0);
+			break;
+		case 'o':
+			len = converter(va_arg(arg, int), 8, 0);
+			break;
+		case 'x':
+			len = converter(va_arg(arg, int), 16, 0);
+			break;
+		case 'X':
+			len = converter(va_arg(arg, int), 16, 1);
+			break;
+		case 's':
+			len = put(va_arg(arg, char *));
+			break;
+		case 'b':
+			len = converter(va_arg(arg, int), 2, 0);
+			break;
+		case 'p':
+			len = converter(va_arg(arg, int), 16, 0);
+			break;
+		case '%':
+			len = put("%");
+			break;
+		case 'u':
+			len = converter(va_arg(arg, int), 10, 0);
+			break;
+	}
+	return (len);
 }

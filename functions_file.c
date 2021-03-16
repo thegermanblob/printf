@@ -18,7 +18,7 @@ int _strlen(char *s)
 	return (i);
 }
 /**
- * _strlen - checks length
+ * _strlenc - checks length
  * @s: string to mesure
  *
  * Return: length of string

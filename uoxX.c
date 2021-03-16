@@ -9,12 +9,13 @@
  * Return: returns pointer to string version of number
  *
  */
-char *converter(unsigned int n, int base, int up)
+int converter(unsigned int n, int base, int up)
 {
 	static const char numupchars[] = "0123456789ABCDEF";
 	static const char numlochars[] = "0123456789abcdef";
 	static char buffer[50];
 	char *num;
+	int len = 0;
 
 	num = &buffer[49];
 	*num = '\0';
@@ -27,17 +28,26 @@ char *converter(unsigned int n, int base, int up)
 		n /= base;
 	} while (n != 0);
 
-	put(num);
+	len = put(num);
 
-	return (num);
+	return (len);
 }
-char *converter2(int n, int base, int up)
+/**
+ * converter2 - converts number to given base and he to a string
+ * @n: number to ocnvert
+ * @base: base to convert number to
+ * @up: used as a bollean variable to make hex uppercase\
+ *
+ * Return: returns pointer to string version of number
+ *
+ */
+int converter2(int n, int base, int up)
 {
 	static const char numupchars[] = "0123456789ABCDEF";
 	static const char numlochars[] = "0123456789abcdef";
 	static char buffer[50];
 	char *num;
-	int nn;
+	int nn, len = 0;
 
 	num = &buffer[49];
 	*num = '\0';
@@ -55,7 +65,7 @@ char *converter2(int n, int base, int up)
 
 	if (nn < 0)
 		*--num = '-';
-	put(num);
+	len = put(num);
 
-	return (num);
+	return (len);
 }

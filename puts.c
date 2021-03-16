@@ -4,14 +4,16 @@
  * @str: string to print
  * Return: nothing
  */
-void put(char *str)
+int put(char *str)
 {
-	int i;
+	int i, len = 0;
 
 	i = 0;
 	while (str[i])
 	{
 		_putchar(str[i]);
+		len++;
 		i++;
 	}
+	return (len);
 }
