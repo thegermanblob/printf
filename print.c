@@ -41,7 +41,7 @@ int _printf(const char *format, ...)
  */
 int switcher(va_list arg, char c)
 {
-	int n, len = 0;
+	int  len = 0;
 
 	switch (c)
 	{
@@ -49,24 +49,10 @@ int switcher(va_list arg, char c)
 			len = _putchar(va_arg(arg, int));
 			break;
 		case 'd':
-			n = va_arg(arg, int);
-			if (n < 0)
-			{
-				n = -n;
-				_putchar('-');
-				len++;
-			}
-			len += converter(n, 10, 0);
+			len = converter2(va_arg(arg, int), 10, 0);
 			break;
 		case 'i':
-			n = va_arg(arg, int);
-			if (n < 0)
-			{
-				n = -n;
-				_putchar('-');
-				len++;
-			}
-			len += converter(n, 10, 0);
+			len = converter2(va_arg(arg, int), 10, 0);
 			break;
 		case 'o':
 			len = converter(va_arg(arg, int), 8, 0);
