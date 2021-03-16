@@ -154,6 +154,9 @@ int switcher3(va_list arg, char c)
 		case 'X':
 			len = converter(va_arg(arg, int), 16, 1);
 			break;
+		case 'R':
+			len = rot13(va_arg(arg, char *));
+			break;
 		default:
 			break;
 	}
