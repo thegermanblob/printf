@@ -69,9 +69,6 @@ int switcher(va_list arg, char c)
 			}
 			len += converter(n, 10, 0);
 			break;
-		case 'X':
-			len = converter(va_arg(arg, int), 16, 1);
-			break;
 		case 's':
 			str = _strdup(va_arg(arg, char *));
 			if (str != NULL)
@@ -122,6 +119,9 @@ int switcher2(va_list arg, char c)
 			break;
 		case 'S':
 			len = putn(va_arg(arg, char *));
+			break;
+		case 'X':
+			len = converter(va_arg(arg, int), 16, 1);
 			break;
 		default:
 			break;
