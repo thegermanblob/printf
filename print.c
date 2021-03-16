@@ -25,7 +25,7 @@ int _printf(const char *format, ...)
 			i++;
 		len += switcher(arg, format[i]);
 		len += switcher2(arg, format[i]);
-
+		len += switcher3(arg, format[i]);
 	}
 	va_end(arg);
 	return (len);
@@ -42,11 +42,14 @@ int _printf(const char *format, ...)
 int switcher(va_list arg, char c)
 {
 	int n, len = 0;
+	char ch;
 
 	switch (c)
 	{
 		case 'c':
-			len = _putchar(va_arg(arg, int));
+			ch = va_arg(arg, int);
+			if (ch >= 0)
+				len = _putchar(ch);
 			break;
 		case 'd':
 			n = va_arg(arg, int);
@@ -68,18 +71,6 @@ int switcher(va_list arg, char c)
 			}
 			len += converter(n, 10, 0);
 			break;
-		case 'o':
-			len = converter(va_arg(arg, int), 8, 0);
-			break;
-		case 'x':
-			len = converter(va_arg(arg, int), 16, 0);
-			break;
-		case 'X':
-			len = converter(va_arg(arg, int), 16, 1);
-			break;
-		case 's':
-			len = put(va_arg(arg, char *));
-			break;
 		default:
 			break;
 	}
@@ -97,15 +88,48 @@ int switcher(va_list arg, char c)
 int switcher2(va_list arg, char c)
 {
 	int len = 0;
+	char *str;
 
 	switch (c)
 	{
+		case 's':
+			str = _strdup(va_arg(arg, char *));
+			if (str != NULL)
+				len = put(str);
+			else
+				len = put("(null)");
+			break;
 		case 'b':
 			len = converter(va_arg(arg, int), 2, 0);
 			break;
 		case 'p':
 			len = converter(va_arg(arg, int), 16, 0);
 			break;
+		case 'o':
+			len = converter(va_arg(arg, int), 8, 0);
+			break;
+		case 'x':
+			len = converter(va_arg(arg, int), 16, 0);
+			break;
+		default:
+			break;
+	}
+	return (len);
+}
+/**
+ * switcher3 - is the main switch for the function print
+ * @arg: list of arguments given to printf
+ * @c: character to be used for the case
+ * Return: length of printed things
+ *
+ */
+
+int switcher3(va_list arg, char c)
+{
+	int len = 0;
+
+	switch (c)
+	{
 		case '%':
 			len = put("%");
 			break;
@@ -117,6 +141,9 @@ int switcher2(va_list arg, char c)
 			break;
 		case 'S':
 			len = putn(va_arg(arg, char *));
+			break;
+		case 'X':
+			len = converter(va_arg(arg, int), 16, 1);
 			break;
 		default:
 			break;

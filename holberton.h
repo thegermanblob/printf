@@ -12,6 +12,7 @@ int _strlen(char *s);
 int _strlenc(const char *s);
 int switcher(va_list arg, char c);
 int switcher2(va_list arg, char c);
+int switcher3(va_list arg, char c);
 int converter(unsigned int n, int base, int up);
 int converter2(int n, int base, int up);
 int converter3(unsigned int n, int base, int up);
@@ -21,5 +22,6 @@ int putr(char *str);
 int putn(char *str);
 char *_strcat(char *dest, char *src);
 int _putchar(char c);
+char *_strdup(char * str);
 
 #endif
