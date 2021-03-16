@@ -1,68 +1,91 @@
 .TH _printf "1" "16 March 2021" "_printf man page"
 .SH NAME
 .B _printf
-- output conversion.
+.RS
+output conversion.
+.RE
+
 .SH SYNOPSIS
 .B _printf
 .I FORMAT [ARGUMENT]...
-.LP
+
 .B _printf
 .I OPTION
-.LP
+
 .SH DESCRIPTION
 Print ARGUMENTS(s) according to FORMAT, or execute according to OPTION:
-.LP
-.B --help
-display this help and exit
-.LP
-.B --version
-output version information and exit
-.LP
+
+
 .SH OPTIONS
-.LP
+
 .B %d, %i
-- format specifier to print and integer of base 10.
-.LP
+.RS
+format specifier to print and integer of base 10.
+.RE
+
 .B %b
-- format specifier to print number in binary.
-.LP
+.RS
+format specifier to print number in binary.
+.RE
+
 .B %o
-- format specifier to print value of an octal variable.
-.LP
+.RS
+format specifier to print value of an octal variable.
+.RE
+
 .B %c
-- format specifier to print a character.
-.LP
+.RS
+format specifier to print a character.
+.RE
+
 .B %s
-- format specifier to print a string
-.LP
+.RS
+format specifier to print a string.
+.RE
+
 .B %S
--format specifier to print a string. Non printable characters (0 < ASCII value < 32 or >= 127) will 
-have a backslash followed by x and the ASCII code value in hexadecimal (upper case - always 2 characters)
-.LP
+.RS
+format specifier to print a string. Non printable characters (0 < ASCII value < 32 or >= 127) are 
+printed this way: \\x,\ followed by the ASCII code value in hexadecimal (upper case - always 2 characters)
+.RE
+
 .B %%
-- format specifier to print a percent sign.
-.LP
+.RS
+format specifier to print a percent sign.
+.RE
+
 .B %x
-- format specifier to print value of a lower-case hexadecimal variable.
-.LP
+.RS
+format specifier to print value of a lower-case hexadecimal variable.
+.RE
+
 .B %X
-- format specifier to print value of a upper-case hexadecimal variable.
-.LP
+.RS
+format specifier to print value of a upper-case hexadecimal variable.
+.RE
+
 .B %p
-- format specifier to print an adress.
-.LP
+.RS
+format specifier to print an adress.
+.RE
+
 .B %u
-- format specifier to print an unsigned integer.
-.LP
+.RS
+format specifier to print an unsigned integer.
+.RE
+
 .B %R
-- format specifier to print the rot13 of a string.
-.LP
+.RS
+format specifier to print the rot13 of a string.
+.RE
+
 .B %r
-- format specifier to print a reversed string.
-.LP
+.RS
+format specifier to print a reversed string.
+.RE
+
 .SH AUTHOR
-Jose Pablo Bonilla, Andres Morales
-.LP
+Jose Pablo Bonilla, Andres Morales.
 .SH BUGS
 No known bugs.
 .SH SEE ALSO
