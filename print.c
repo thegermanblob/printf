@@ -1,23 +1,5 @@
 #include "holberton.h"
 
-/**
- * check - count of specific char
- * @s: string given
- * @c: char to find
- * Return: count total
- */
-
-int check(const char *s, char c)
-{
-	int i, count = 0;
-
-	for (i = 0; s[i]; i++)
-	{
-		if (s[i] == c)
-			count++;
-	}
-	return (count);
-}
 
 /**
  * _printf - print an output
@@ -27,13 +9,9 @@ int check(const char *s, char c)
 
 int _printf(const char *format, ...)
 {
-	int i, n;
+	int i;
 	va_list arg;
 
-	n = check(format, '%');
-
-	if (n != 0)
-	{
 		va_start(arg, format);
 		for (i = 0; i < _strlenc(format); i++)
 		{
@@ -47,7 +25,6 @@ int _printf(const char *format, ...)
 			switcher(arg, format[i]);
 
 		}
-	}
 	va_end(arg);
 	return (i);
 }
@@ -67,10 +44,10 @@ void switcher(va_list arg, char c)
 					_putchar(va_arg(arg, int));
 					break;
 				case 'd':
-					converter(va_arg(arg, int), 10, 0);
+					converter2(va_arg(arg, int), 10, 0);
 					break;
 				case 'i':
-					converter(va_arg(arg, int), 10, 0);
+					converter2(va_arg(arg, int), 10, 0);
 					break;
 				case 'o':
 					converter(va_arg(arg, int), 8, 0);
@@ -92,6 +69,9 @@ void switcher(va_list arg, char c)
 					break;
 				case '%':
 					put("%");
+					break;
+				case 'u':
+					converter(va_arg(arg, int), 10, 0);
 					break;
 			}
 }

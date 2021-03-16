@@ -9,7 +9,29 @@
  * Return: returns pointer to string version of number
  *
  */
-char *converter(int n, int base, int up)
+char *converter(unsigned int n, int base, int up)
+{
+	static const char numupchars[] = "0123456789ABCDEF";
+	static const char numlochars[] = "0123456789abcdef";
+	static char buffer[50];
+	char *num;
+
+	num = &buffer[49];
+	*num = '\0';
+
+	do {
+		if (up)
+			*--num = numupchars[n % base];
+		else
+			*--num = numlochars[n % base];
+		n /= base;
+	} while (n != 0);
+
+	put(num);
+
+	return (num);
+}
+char *converter2(int n, int base, int up)
 {
 	static const char numupchars[] = "0123456789ABCDEF";
 	static const char numlochars[] = "0123456789abcdef";
