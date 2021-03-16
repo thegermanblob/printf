@@ -68,12 +68,6 @@ int switcher(va_list arg, char c)
 			}
 			len += converter(n, 10, 0);
 			break;
-		case 'o':
-			len = converter(va_arg(arg, int), 8, 0);
-			break;
-		case 'x':
-			len = converter(va_arg(arg, int), 16, 0);
-			break;
 		case 'X':
 			len = converter(va_arg(arg, int), 16, 1);
 			break;
@@ -104,6 +98,12 @@ int switcher2(va_list arg, char c)
 			len = converter(va_arg(arg, int), 2, 0);
 			break;
 		case 'p':
+			len = converter(va_arg(arg, int), 16, 0);
+			break;
+		case 'o':
+			len = converter(va_arg(arg, int), 8, 0);
+			break;
+		case 'x':
 			len = converter(va_arg(arg, int), 16, 0);
 			break;
 		case '%':
