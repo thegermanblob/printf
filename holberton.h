@@ -20,6 +20,7 @@ void dprint(unsigned int n);
 int put(char *str);
 int putr(char *str);
 int putn(char *str);
+int rot13(char *str);
 char *_strcat(char *dest, char *src);
 int _putchar(char c);
 char *_strdup(char * str);
