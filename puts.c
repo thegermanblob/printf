@@ -63,7 +63,11 @@ int putn(char *str)
 	}
 	return (len);
 }
-
+/**
+ * rot13 - prints a string in rot13.
+ * @str: string to encrypt
+ * Return: string after encription.
+ */
 int rot13(char *str)
 {
 	int i, j, len = 0;
