@@ -79,11 +79,10 @@ int rot13(char *str)
 		for (j = 0; a1[j] != '\0'; j++)
 		{
 			if (str[i] == a1[j])
-				break;
-			if (str[i] == a1[j])
 			{
 				_putchar(a2[j]);
 				len++;
+				break;
 			}
 			else
 			{
