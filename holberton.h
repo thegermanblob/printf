@@ -22,6 +22,6 @@ int putr(char *str);
 int putn(char *str);
 char *_strcat(char *dest, char *src);
 int _putchar(char c);
-char *_strdup(char * str);
+char *_strdup(char *str);
 
 #endif
