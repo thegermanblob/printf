@@ -64,9 +64,9 @@ int putn(char *str)
 	return (len);
 }
 /**
- * rot13 - translates to rot13
- * @str: string to translate
- * Return: lenght of printed string
+ * rot13 - prints a string in rot13.
+ * @str: string to encrypt
+ * Return: string after encription.
  */
 int rot13(char *str)
 {
