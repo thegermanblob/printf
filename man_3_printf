@@ -4,10 +4,10 @@
 - output conversion.
 .SH SYNOPSIS
 .B _printf
-FORMAT [ARGUMENT]...
+.I FORMAT [ARGUMENT]...
 .LP
 .B _printf
-OPTION
+.I OPTION
 .LP
 .SH DESCRIPTION
 Print ARGUMENTS(s) according to FORMAT, or execute according to OPTION:
@@ -35,6 +35,10 @@ output version information and exit
 .B %s
 - format specifier to print a string
 .LP
+.B %S
+-format specifier to print a string. Non printable characters (0 < ASCII value < 32 or >= 127) will 
+have a backslash followed by x and the ASCII code value in hexadecimal (upper case - always 2 characters)
+.LP
 .B %%
 - format specifier to print a percent sign.
 .LP
@@ -56,3 +60,10 @@ output version information and exit
 .B %r
 - format specifier to print a reversed string.
 .LP
+.SH AUTHOR
+Jose Pablo Bonilla, Andres Morales
+.LP
+.SH BUGS
+No known bugs.
+.SH SEE ALSO
+.I printf(3), write(2)
