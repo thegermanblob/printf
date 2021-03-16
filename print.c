@@ -56,7 +56,7 @@ int switcher(va_list arg, char c)
 				_putchar('-');
 				len++;
 			}
-			len = converter(n, 10, 0);
+			len += converter(n, 10, 0);
 			break;
 		case 'i':
 			n = va_arg(arg, int);
@@ -66,7 +66,7 @@ int switcher(va_list arg, char c)
 				_putchar('-');
 				len++;
 			}
-			len = converter(n, 10, 0);
+			len += converter(n, 10, 0);
 			break;
 		case 'o':
 			len = converter(va_arg(arg, int), 8, 0);
@@ -117,6 +117,8 @@ int switcher2(va_list arg, char c)
 			break;
 		case 'S':
 			len = putn(va_arg(arg, char *));
+			break;
+		default:
 			break;
 	}
 	return (len);
