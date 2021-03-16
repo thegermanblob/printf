@@ -69,6 +69,5 @@ char *_strcat(char *dest, char *src)
 		scount++;
 		i++;
 	}
-	printf("stcat src[%s]", src);
 	return (dest);
 }
