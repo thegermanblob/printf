@@ -35,6 +35,8 @@ int _printf(const char *format, ...)
 	}
 	va_end(arg);
 	}
+	else
+		len -= 1;
 	return (len);
 }
 
