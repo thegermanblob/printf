@@ -35,12 +35,11 @@ int _printf(const char *format, ...)
 			len += switcher(arg, format[i]);
 			len += switcher2(arg, format[i]);
 			len += switcher3(arg, format[i]);
-
-			if (format[i] == '%')
-				return (-1);
 		}
 		va_end(arg);
 	}
+	else
+		len -= 1;
 	return (len);
 }
 
