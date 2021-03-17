@@ -31,7 +31,7 @@ format specifier to print a string.
 
 **%S**
 format specifier to print a string. Non printable characters (0 < ASCII value < 32 or >= 127) are
-printed this way: \\x,\ followed by the ASCII code value in hexadecimal (upper case - always 2 characters)
+printed this way: \\x, followed by the ASCII code value in hexadecimal (upper case - always 2 characters)
 
 **%%**
 format specifier to print a percent sign.
@@ -57,9 +57,9 @@ format specifier to print a reversed string.
 **EXAMPLE**
 How to use _printf with conversion specifiers:
 
-'''#include "holberton.h"
+```#include "holberton.h"
 
-_printf("The %s won the game by %d runs.", "Yankees", 2);'''
+_printf("The %s won the game by %d runs.", "Yankees", 2);```
 
 Output: "The Yankees won the game by 2 runs."
 
