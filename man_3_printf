@@ -15,6 +15,9 @@ output conversion.
 .SH DESCRIPTION
 Print ARGUMENTS(s) according to FORMAT, or execute according to OPTION:
 
+.SH RETURN VALUE
+On a successful return, the function will return the number of characters printed (excluding the null byte). 
+A negative value is returned when the output encounters and error.
 
 .SH OPTIONS
 
@@ -46,7 +49,7 @@ format specifier to print a string.
 .B %S
 .RS
 format specifier to print a string. Non printable characters (0 < ASCII value < 32 or >= 127) are 
-printed this way: \\x,\ followed by the ASCII code value in hexadecimal (upper case - always 2 characters)
+printed this way: \\x,\ followed by the ASCII code value in hexadecimal (upper case - always 2 characters).
 .RE
 
 .B %%
@@ -66,7 +69,7 @@ format specifier to print value of a upper-case hexadecimal variable.
 
 .B %p
 .RS
-format specifier to print an adress.
+format specifier to print an address.
 .RE
 
 .B %u
@@ -84,9 +87,21 @@ format specifier to print the rot13 of a string.
 format specifier to print a reversed string.
 .RE
 
+.B EXAMPLE
+
+How to use _printf with conversion specifiers:
+
+.RS
+#include "holberton.h"
+
+_printf("The %s won the game by %d runs.", "Yankees", 2);
+.RE
+
+.RS
+Output: "The Yankees won the game by 2 runs."
+.RE
+
 .SH AUTHOR
 Jose Pablo Bonilla, Andres Morales.
-.SH BUGS
-No known bugs.
 .SH SEE ALSO
 .I printf(3), write(2)
