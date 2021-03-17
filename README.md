@@ -57,9 +57,11 @@ format specifier to print a reversed string.
 **EXAMPLE**
 How to use _printf with conversion specifiers:
 
-```#include "holberton.h"
+```
+#include "holberton.h"
 
-_printf("The %s won the game by %d runs.", "Yankees", 2);```
+_printf("The %s won the game by %d runs.", "Yankees", 2);
+```
 
 Output: "The Yankees won the game by 2 runs."
 
